@@ -19,5 +19,5 @@ function $(id){
 
 ReactDOM.render({
     <ActionClick/>,$('elFunctionWrap')
-});
+})
 
