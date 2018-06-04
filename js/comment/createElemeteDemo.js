@@ -2,7 +2,7 @@
 * jsx 命名规范:
 * React 可以渲染 HTML 标签 (strings) 或 React 组件 (classes)。
 *
-React DOM 首先会比较元素内容先后的不同，而在渲染过程中只会更新改变了的部分。ps:是不是意味着要劲量的使单个组件不要太大?
+ todo React DOM 首先会比较元素内容先后的不同，而在渲染过程中只会更新改变了的部分。ps:是不是意味着要尽量的使单个组件不要太大?
 * */
 
 //要渲染 HTML 标签，只需在 JSX 里使用小写字母的标签名。
@@ -34,7 +34,7 @@ ReactDOM.render(
     el3, document.getElementById('el3')
 );
 
-//要渲染 React 组件，只需创建一个大写字母开头的本地变量。
+//要渲染 React 组件，只需创建一个大写字母开头的本地变量。这是之前通用的创建类方式, this 指向的是当前组件的上下文环境
 const El4 = React.createClass({
     render: function () {
         return <div>
@@ -59,7 +59,7 @@ ReactDOM.render(
     <El5/>, document.getElementById('el5')
 );
 
-//方式3 使用 ES6 class 来定义一个组件:
+//方式3 使用 ES6 class 来定义一个组件: 这是react 最新推荐的定义组件的方法,里面的this 需要绑定,参见http://www.jb51.net/article/91447.htm
 class El6 extends React.Component {
     render() {
         return <div>
@@ -92,7 +92,7 @@ ReactDOM.render(
     elStyle, document.getElementById('el8')
 );
 // 大括号内大引号为字符串,不带则为变量
-const elStyle2= (
+const elStyle2 = (
     <div>
         <h1 className={'ttBlue'}>这是测试样式2s</h1>
     </div>
@@ -100,3 +100,4 @@ const elStyle2= (
 ReactDOM.render(
     elStyle2, document.getElementById('el9')
 );
+
